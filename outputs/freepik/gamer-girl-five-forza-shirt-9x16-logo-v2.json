@@ -1,0 +1,12 @@
+{
+  "prompt": "Keep the exact same woman, face, pose, hairstyle, body, background, framing, and 9:16 composition. Only replace her top with a clean fitted t-shirt. Place the exact attached Forza Horizon 6 logo reference on the front of the shirt, centered and clearly readable. Do not invent a different logo. Use the provided logo reference. Preserve everything else unchanged.",
+  "task": {
+    "data": {
+      "task_id": "ab5b95e0-a452-4f8d-b27a-25864580337e",
+      "status": "COMPLETED",
+      "generated": [
+        "https://cdn-magnific.freepik.com/result_SEEDREAM_V4_EDIT_ab5b95e0-a452-4f8d-b27a-25864580337e_0.jpeg?token=exp=1775741287~hmac=44a45bcec7327f050904bf5b1dce4ebf2c687431b43ac434d8b7cc56eab207ba&size=stable"
+      ]
+    }
+  }
+}
