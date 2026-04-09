@@ -1,6 +1,6 @@
 # connector-email-hks
 
-Outlook connector + OpenClaw skill using Microsoft Graph (account-agnostic).
+Outlook connector + OpenClaw skill using Microsoft Graph, personalized for Mitko and `m.zarkov@hksglobal.group`.
 
 Implements Microsoft Graph email operations in Go:
 - send email (To/CC/BCC, HTML/text)
@@ -53,14 +53,14 @@ Named profile cache path:
 Example:
 
 ```bash
-cd skills/connector-email-hks/scripts
-go run . whoami --profile "risk-agent" --expect-user "risk-agent@hksglobal.group"
-go run . list --profile "risk-agent" --expect-user "risk-agent@hksglobal.group" --top 10
+cd connectors/connector-email-hks/scripts
+go run . whoami --profile "mitko" --expect-user "m.zarkov@hksglobal.group"
+go run . list --profile "mitko" --expect-user "m.zarkov@hksglobal.group" --top 10
 ```
 
 ## Create a user profile (first login)
 
-A **profile** here means a local token-cache name (for example: `henry`, `risk-agent`).
+A **profile** here means a local token-cache name (for example: `mitko`).
 It does **not** create a user in Azure; it isolates local sign-in sessions.
 
 1) Load required parameters:
@@ -78,8 +78,8 @@ Required parameters in env:
 2) Run any command with a profile name (this triggers login on first use):
 
 ```bash
-cd skills/connector-email-hks/scripts
-go run . list --profile "henry" --top 5
+cd connectors/connector-email-hks/scripts
+go run . list --profile "mitko" --top 5 --expect-user "m.zarkov@hksglobal.group"
 ```
 
 3) Complete browser sign-in when prompted, then paste redirected URL.
@@ -87,13 +87,13 @@ go run . list --profile "henry" --top 5
 4) Reuse the same profile for all future commands:
 
 ```bash
-go run . send --profile "henry" --to "a@b.com" --subject "Hi" --body "Hello" --text
+go run . send --profile "mitko" --to "a@b.com" --subject "Hi" --body "Hello" --text --expect-user "m.zarkov@hksglobal.group"
 ```
 
 Optional default profile via env:
 
 ```bash
-export OUTLOOK_PROFILE=henry
+export OUTLOOK_PROFILE=mitko
 ```
 
 ---
@@ -133,29 +133,29 @@ go run . send \
 Plain text:
 
 ```bash
-go run . send --to "recipient@example.com" --subject "Hi" --body "Hello" --text --expect-user "henry@hksglobal.group"
+go run . send --to "recipient@example.com" --subject "Hi" --body "Hello" --text --expect-user "m.zarkov@hksglobal.group"
 ```
 
 ### Who am I (verify authenticated mailbox)
 
 ```bash
-go run . whoami --profile "risk-agent"
-go run . whoami --profile "risk-agent" --expect-user "risk-agent@hksglobal.group"
+go run . whoami --profile "mitko"
+go run . whoami --profile "mitko" --expect-user "m.zarkov@hksglobal.group"
 ```
 
 ### List / Search
 
 ```bash
-go run . list --folder Inbox --top 20 --expect-user "henry@hksglobal.group"
-go run . list --query "from:y.borisova@hksglobal.group" --expect-user "henry@hksglobal.group"
-go run . list --profile "risk-agent" --expect-user "risk-agent@hksglobal.group" --top 20
+go run . list --folder Inbox --top 20 --expect-user "m.zarkov@hksglobal.group"
+go run . list --query "isRead eq false" --expect-user "m.zarkov@hksglobal.group"
+go run . list --profile "mitko" --expect-user "m.zarkov@hksglobal.group" --top 20
 ```
 
 ### Read
 
 ```bash
-go run . read --id "<message-id>" --expect-user "henry@hksglobal.group"
-go run . read --id "<message-id>" --attachments --expect-user "henry@hksglobal.group"
+go run . read --id "<message-id>" --expect-user "m.zarkov@hksglobal.group"
+go run . read --id "<message-id>" --attachments --expect-user "m.zarkov@hksglobal.group"
 ```
 
 ### Download attachments
@@ -167,8 +167,8 @@ go run . download-attachments --id "<message-id>" --out "./downloads"
 ### Reply
 
 ```bash
-go run . reply --id "<message-id>" --body "<p>Thanks.</p>" --expect-user "henry@hksglobal.group"
-go run . reply --id "<message-id>" --body "<p>Thanks all.</p>" --reply-all --expect-user "henry@hksglobal.group"
+go run . reply --id "<message-id>" --body "<p>Thanks.</p>" --expect-user "m.zarkov@hksglobal.group"
+go run . reply --id "<message-id>" --body "<p>Thanks all.</p>" --reply-all --expect-user "m.zarkov@hksglobal.group"
 ```
 
 ---

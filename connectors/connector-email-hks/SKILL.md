@@ -3,9 +3,9 @@ name: connector-email-hks
 description: Outlook operations via local Go CLI + Microsoft Graph. Supports drafting/sending emails (To/CC/BCC, HTML/text, attachments), inbox listing/search, message read, attachment download, and reply/reply-all. Use when asked to send/read/search Outlook emails from this machine.
 ---
 
-# Outlook Email (Graph) — Go
+# Outlook Email (Graph) for Mitko
 
-Use this skill to compose and send Outlook emails with the bundled Go CLI.
+Use this skill to check and manage Mitko's Outlook mailbox with the bundled Go CLI.
 
 ## Script
 
@@ -38,7 +38,7 @@ go run . send \
   --subject "Subject here" \
   --body "<p>HTML body here</p>" \
   --attach "/path/file1.pdf,/path/file2.csv" \
-  --expect-user "henry@hksglobal.group"
+  --expect-user "m.zarkov@hksglobal.group"
 ```
 
 For plain text, add `--text`.
@@ -53,36 +53,36 @@ go run . whoami --cache ~/.openclaw/outlook_token_cache_<profile>.json --expect-
 ### List/search inbox
 
 ```bash
-go run . list --folder "Inbox" --top 20 --expect-user "henry@hksglobal.group"
-go run . list --query "from:y.borisova@hksglobal.group" --expect-user "henry@hksglobal.group"
-go run . list --profile "risk-agent" --expect-user "risk-agent@hksglobal.group" --top 20
+go run . list --folder "Inbox" --top 20 --expect-user "m.zarkov@hksglobal.group"
+go run . list --query "isRead eq false" --expect-user "m.zarkov@hksglobal.group"
+go run . list --profile "mitko" --expect-user "m.zarkov@hksglobal.group" --top 20
 ```
 
 ### Read a message
 
 ```bash
-go run . read --id "<message-id>" --expect-user "henry@hksglobal.group"
-go run . read --id "<message-id>" --attachments --expect-user "henry@hksglobal.group"
+go run . read --id "<message-id>" --expect-user "m.zarkov@hksglobal.group"
+go run . read --id "<message-id>" --attachments --expect-user "m.zarkov@hksglobal.group"
 ```
 
 ### Download attachments
 
 ```bash
-go run . download-attachments --id "<message-id>" --out "./downloads" --expect-user "henry@hksglobal.group"
+go run . download-attachments --id "<message-id>" --out "./downloads" --expect-user "m.zarkov@hksglobal.group"
 ```
 
 ### Reply / reply-all
 
 ```bash
-go run . reply --id "<message-id>" --body "<p>Thanks, noted.</p>" --expect-user "henry@hksglobal.group"
-go run . reply --id "<message-id>" --body "<p>Thanks all.</p>" --reply-all --expect-user "henry@hksglobal.group"
+go run . reply --id "<message-id>" --body "<p>Thanks, noted.</p>" --expect-user "m.zarkov@hksglobal.group"
+go run . reply --id "<message-id>" --body "<p>Thanks all.</p>" --reply-all --expect-user "m.zarkov@hksglobal.group"
 ```
 
 ## Auth behavior
 
 - Token cache defaults:
   - default profile: `~/.openclaw/outlook_token_cache.json`
-  - named profile (`--profile risk-agent` or `OUTLOOK_PROFILE=risk-agent`): `~/.openclaw/outlook_token_cache_risk_agent.json`
+  - named profile (`--profile mitko` or `OUTLOOK_PROFILE=mitko`): `~/.openclaw/outlook_token_cache_mitko.json`
 - `--cache` always overrides profile-based default paths
 - Reuses valid cached access token when available
 - Falls back to refresh-token grant when possible
@@ -101,10 +101,8 @@ GitHub Actions workflow: `.github/workflows/go-ci.yml`
 ## Safety
 
 - Always run `whoami` before claiming mailbox access in replies.
-- Always use `--expect-user <email>` for mailbox operations (`send`, `list`, `read`, `download-attachments`, `reply`) to fail closed on identity mismatch.
-- Treat `AUTHENTICATED_AS=...` output as mandatory evidence of identity; do not claim success without command output.
+- Always use `--expect-user m.zarkov@hksglobal.group` for Mitko's mailbox operations unless explicitly switching accounts.
+- Treat `AUTHENTICATED_AS=...` output as mandatory evidence of identity, do not claim success without command output.
+- Prefer unread checks and inbox summaries first, before broader mailbox actions.
 - Always confirm recipients (To/CC/BCC), subject, and body before send.
 - Do not send external emails without user approval.
-- Default behavior: send one email with proper To/CC/BCC fields unless user asks for separate emails.
-o/CC/BCC fields unless user asks for separate emails.
-er To/CC/BCC fields unless user asks for separate emails.
