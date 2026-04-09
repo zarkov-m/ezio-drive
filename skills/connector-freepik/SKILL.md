@@ -11,7 +11,7 @@ Use this skill for Mitko's Freepik workflow.
 
 Prefer the normal logged-in browser profile on this machine.
 
-Assume Mitko is already logged in to Freepik there unless the browser session shows otherwise.
+Assume Mitko is already logged in to Freepik there unless the browser session shows otherwise. Current browser login identity for Freepik: `a.pavlov@hksglobal.group`.
 
 Use this skill for all of the following:
 - search assets
@@ -20,18 +20,19 @@ Use this skill for all of the following:
 - reuse reference images
 - download outputs
 
-If an official API becomes available and configured later, add a script-based path. Until then, treat the browser workflow as primary.
+Freepik API access is also available locally when `FREEPIK_API_KEY` is present in `.secrets/freepik.env`. Prefer browser workflow for actions tied to the website UI, session state, or interactive generation flow. Prefer API usage later for deterministic automation if scripts are added.
 
 ## Core workflow
 
-1. Confirm the goal: search, generate image, generate video, or download.
-2. Use the normal logged-in browser profile.
-3. Identify the deliverable format.
-4. Gather prompts, references, and constraints.
-5. Generate the image first when the task will later become a video.
-6. Reuse the strongest image or character reference for consistency.
-7. Execute the website workflow carefully.
-8. Report results briefly and clearly.
+1. Confirm the goal: search, generate image, generate video, download, or API-backed automation.
+2. Use the normal logged-in browser profile by default.
+3. If the task is better suited to automation and API coverage is sufficient, load `.secrets/freepik.env` first.
+4. Identify the deliverable format.
+5. Gather prompts, references, and constraints.
+6. Generate the image first when the task will later become a video.
+7. Reuse the strongest image or character reference for consistency.
+8. Execute the browser or API workflow carefully.
+9. Report results briefly and clearly.
 
 ## Minimum brief to collect
 
@@ -86,6 +87,7 @@ When downloading outputs:
 - Do not publish externally without approval.
 - Do not assume licensing details that are not visible in Freepik.
 - Do not overwrite local creative files without asking.
+- Keep `FREEPIK_API_KEY` in local secret storage only, never commit or paste it back into chat.
 - If the logged-in browser session is missing or expired, stop and ask Mitko to log in first.
 
 ## References
