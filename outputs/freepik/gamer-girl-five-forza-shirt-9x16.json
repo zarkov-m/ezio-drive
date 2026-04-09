@@ -1,0 +1,12 @@
+{
+  "prompt": "Keep the same woman exactly as she is, same face, same pose, same hairstyle, same body, same background, same composition. Only change her top clothes into a clean fitted t-shirt with the Forza Horizon logo clearly printed on the front. Do not change anything else. Fashion photo realism. Preserve 9:16 composition.",
+  "task": {
+    "data": {
+      "task_id": "7037f5a2-8f37-4a55-b6e8-57ff92a096c2",
+      "status": "COMPLETED",
+      "generated": [
+        "https://cdn-magnific.freepik.com/result_SEEDREAM_V4_EDIT_7037f5a2-8f37-4a55-b6e8-57ff92a096c2_0.jpeg?token=exp=1775735762~hmac=17e21f6ae41bf595b1b5188340979970905491a5239f928360b2e44c197c6825&size=stable"
+      ]
+    }
+  }
+}
