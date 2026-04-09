@@ -1,0 +1,13 @@
+{
+  "prompt": "Vertical 1080x1920 breaking-news style motion graphic, no people, no influencer, pure text and visuals only. Full-screen bold red exploding text: GTA V LEAVING GAME PASS. Large urgent countdown text: 7 DAYS LEFT. Dark background, high contrast, intense red and black palette, glitch effects, dramatic lighting, fast zoom, sharp typography, urgent social media news style.",
+  "task": {
+    "data": {
+      "task_id": "ef592b5b-bbae-4cc2-82a0-781177c9e00e",
+      "status": "COMPLETED",
+      "generated": [
+        "https://cdn-magnific.freepik.com/videos/video_WAN_25_T2V_1080P_ef592b5b-bbae-4cc2-82a0-781177c9e00e_0.mp4?token=exp=1775745216~hmac=62e3060617fae7d0638607f5a02f108c3ec62cfcbc04bd88162429a608875251"
+      ]
+    }
+  },
+  "voiceover": "GTA V is leaving Xbox Game Pass in 7 days. If you still want to play it \u2014 here is what to do."
+}
