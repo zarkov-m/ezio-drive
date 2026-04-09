@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate, random, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Easing, interpolate, random, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 
 const SEGMENTS = [
   {frames: 60, voice: 'GTA V is leaving Game Pass in 7 days.'},
@@ -406,7 +406,7 @@ export const Scene01: React.FC = () => {
     <AbsoluteFill style={{background: '#000'}}>
       {scenes[index]}
       <AbsoluteFill style={{pointerEvents: 'none', opacity: vignette, boxShadow: 'inset 0 0 180px rgba(0,0,0,0.65)'}} />
-      {/* Voiceover track to be added separately: {SEGMENTS.map(s => s.voice).join(' | ')} */}
+      <Audio src={staticFile('voiceover.mp3')} />
     </AbsoluteFill>
   );
 };
