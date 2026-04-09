@@ -1,0 +1,16 @@
+# local secrets/env
+.env
+.env.*
+!.env.example
+.secrets/
+
+# token caches
+*.cache
+onedrive_token_cache.json
+
+# local runtime output
+results/
+*.log
+
+# os noise
+.DS_Store

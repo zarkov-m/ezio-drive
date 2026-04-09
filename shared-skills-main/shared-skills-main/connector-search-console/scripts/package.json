@@ -1,0 +1,24 @@
+{
+  "name": "connector-search-console",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@googleapis/indexing": "^6.0.1",
+    "@googleapis/searchconsole": "^6.0.1",
+    "dotenv": "^17.3.1",
+    "googleapis": "^171.4.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit",
+    "test": "npm run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1"
+  }
+}

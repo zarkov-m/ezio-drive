@@ -1,0 +1,15 @@
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# dependencies
+scripts/node_modules/
+
+# local outputs
+scripts/results/
+scripts/tmp_*
+
+# misc
+.DS_Store
+*.log

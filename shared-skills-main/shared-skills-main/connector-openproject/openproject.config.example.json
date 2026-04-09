@@ -1,0 +1,7 @@
+{
+  "base_url": "https://your-openproject.example.com/",
+  "token": "PASTE_OPENPROJECT_API_TOKEN_HERE",
+  "api_path": "/api/v3",
+  "parallel": 4,
+  "page_size": 200
+}

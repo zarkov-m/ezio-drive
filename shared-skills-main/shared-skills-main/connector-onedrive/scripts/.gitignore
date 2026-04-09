@@ -1,0 +1,8 @@
+# local binaries
+/main
+/scripts
+*.exe
+
+# local temp/output
+/results/
+*.log

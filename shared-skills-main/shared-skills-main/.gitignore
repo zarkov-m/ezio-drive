@@ -1,0 +1,15 @@
+# Secrets
+.env
+*.env
+*.pem
+*.key
+
+# Generated outputs
+results/
+dist/
+.tmp/
+__pycache__/
+
+# Local scratch files
+tmp_*
+*.log
