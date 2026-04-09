@@ -1,0 +1,12 @@
+{
+  "prompt": "Keep the exact same woman, face, pose, hairstyle, body, background, framing, and 9:16 composition. Completely remove any existing print, logo, text, or graphic from the shirt first. Replace it with a plain clean fitted t-shirt that has only one single Forza Horizon 6 logo on the front, centered on the chest. Use the attached official logo reference. Do not keep any old shirt logo. Do not add a second logo. Do not change anything else.",
+  "task": {
+    "data": {
+      "task_id": "e2040385-e04e-488d-a406-038fa40ed45b",
+      "status": "COMPLETED",
+      "generated": [
+        "https://cdn-magnific.freepik.com/result_SEEDREAM_V4_EDIT_e2040385-e04e-488d-a406-038fa40ed45b_0.jpeg?token=exp=1775741513~hmac=8c34975684facff243e4bd914c5cf31a4cef88506bde278b0f31bc6f4a4307e8&size=stable"
+      ]
+    }
+  }
+}
