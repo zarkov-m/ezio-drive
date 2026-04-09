@@ -1,0 +1,5 @@
+.secrets/
+*.env
+scripts/openproject-ops
+scripts/openproject_ops
+*.log
